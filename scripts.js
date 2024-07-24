@@ -15,7 +15,7 @@ let currentQuestionIndex = -1;
 
 document.getElementById('random-number-button').addEventListener('click', function() {
     currentQuestionIndex = Math.floor(Math.random() * questionsAndAnswers.length);
-    document.getElementById('random-number-display').innerText = `ตัวเลขที่สุ่มได้: ${currentQuestionIndex + 1}`;
+    document.getElementById('random-number-display').innerText = `คำถามข้อที่ : ${currentQuestionIndex + 1}`;
     document.getElementById('question-display').style.display = 'none';
     document.getElementById('answer-display').style.display = 'none';
     document.getElementById('show-question-button').style.display = 'inline-block';
