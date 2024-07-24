@@ -44,7 +44,7 @@ document.getElementById('show-answer-button').addEventListener('click', function
 });
 
 document.getElementById('reset-button').addEventListener('click', function() {
-    document.getElementById('random-number-display').innerText = 'กดปุ่มเพื่อสุ่มตัวเลข';
+    document.getElementById('random-number-display').innerText = 'กดปุ่มเพื่อสุ่มคำถาม';
     document.getElementById('random-number-display').style.display = 'block';
     document.getElementById('question-display').style.display = 'none';
     document.getElementById('answer-display').style.display = 'none';
