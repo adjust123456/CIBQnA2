@@ -1,12 +1,37 @@
+@font-face {
+    font-family: 'FC Iconic';
+    src: url('fonts/FCIconic-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: FC Iconic,Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #00264B;
+    background: linear-gradient(270deg, #00264B, #005F99, #00264B);
+    background-size: 600% 600%;
+    animation: BackgroundAnimation 10s ease infinite;
 }
+
+@keyframes BackgroundAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 .container {
     text-align: center;
@@ -15,7 +40,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 header {
@@ -24,12 +49,13 @@ header {
 
 .header-image {
     width: 100%;
-    max-width: 30%;
+    max-width: 25%;
+    height: auto;
     border-radius: 10px;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 1em;
     margin-top: 20px;
 }
 
@@ -80,10 +106,21 @@ button {
     background-color: #c82333;
 }
 
-#answer-display, #question-display {
+#random-number-display {
+        font-size: 2em;
+    }
+
+#question-display {
     margin-top: 20px;
+     font-size: 2em;
     font-weight: bold;
     color: #333;
+}
+ #answer-display {
+    margin-top: 16px;
+     font-size: 2em;
+    font-weight: bold;
+    color: #0d5302;
 }
 
 @media (max-width: 600px) {
@@ -92,12 +129,12 @@ button {
     }
 
     button {
-        margin-top: 10px;
+        margin-top: 20px;
         padding: 8px 16px;
         font-size: 14px;
     }
 
     .header-image {
-        max-width: 50%;
+        max-width: 20%;
     }
 }
