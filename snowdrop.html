@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: #00b140;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        .snow-pile {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            bottom: 0;
+            opacity: 0.8;
+            transition: opacity 3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                opacity: 0;
+                transform: translateY(-100%) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createSnowPile(x, size) {
+            const pile = document.createElement('div');
+            pile.className = 'snow-pile';
+            
+            // ใช้ขนาดเดียวกับเกล็ดหิมะที่ตกลงมา
+            pile.style.width = `${size}px`;
+            pile.style.height = `${size}px`;
+            pile.style.left = `${x}px`;
+            
+            document.body.appendChild(pile);
+            
+            // เริ่ม fade out ก่อนที่จะลบ
+            setTimeout(() => {
+                pile.classList.add('fade-out');
+            }, 27000);
+            
+            // ลบหลังจาก fade out เสร็จ
+            setTimeout(() => {
+                pile.remove();
+            }, 30000);
+        }
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            
+            const size = Math.random() * 4 + 2;
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+            
+            const leftPosition = Math.random() * window.innerWidth;
+            snowflake.style.left = `${leftPosition}px`;
+            
+            const duration = Math.random() * 7 + 8;
+            snowflake.style.animationDuration = `${duration}s`;
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                createSnowPile(leftPosition, size);
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        setInterval(createSnowflake, 300);
+    </script>
+</body>
+</html>
