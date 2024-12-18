@@ -52,19 +52,16 @@
             const pile = document.createElement('div');
             pile.className = 'snow-pile';
             
-            // ใช้ขนาดเดียวกับเกล็ดหิมะที่ตกลงมา
             pile.style.width = `${size}px`;
             pile.style.height = `${size}px`;
             pile.style.left = `${x}px`;
             
             document.body.appendChild(pile);
             
-            // เริ่ม fade out ก่อนที่จะลบ
             setTimeout(() => {
                 pile.classList.add('fade-out');
             }, 27000);
             
-            // ลบหลังจาก fade out เสร็จ
             setTimeout(() => {
                 pile.remove();
             }, 30000);
@@ -74,7 +71,8 @@
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
             
-            const size = Math.random() * 4 + 2;
+            // เพิ่มขนาดของเกล็ดหิมะเป็น 6-12 พิกเซล (จากเดิม 2-6 พิกเซล)
+            const size = Math.random() * 6 + 6;
             snowflake.style.width = `${size}px`;
             snowflake.style.height = `${size}px`;
             
